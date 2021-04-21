@@ -57,7 +57,7 @@ public class FunctionalTest {
 
     @Test
     public void testSearch() {
-        driver.get("https://www.meetup.com/fr-FR/find/outdoors-adventure/");
+        driver.get("https://www.meetup.com/fr-FR/find/outdoors-adventure/?allMeetups=false&radius=42&userFreeform=Paris&mcId=c1011740&mcName=Paris%2C+FR");
 
         // Le titre de la page d'accueil et du h1 contiennent tous les deux Nature et aventure
         assertTrue(driver.getTitle().contains("Nature et aventure"));
@@ -83,10 +83,10 @@ public class FunctionalTest {
         assertFalse(driver.findElements(By.className("event-listing-container")).isEmpty());
         assertFalse(driver.findElements(By.id("simple-date-selector")).isEmpty());
 
-        //Quand je clique sur le 21 du mois courant du calendrier, le premier résultat de la liste qui s'affiche correspond à un événement du 21 du mois courant.
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,200)", "");
-        driver.findElement(By.cssSelector(".date_21 a")).click();
-        //assertTrue(driver.findElement(By.className("date-indicator")).getText().contains("21")); // c'est pas le cas
+        //Quand je clique sur le 30 du mois courant du calendrier, le premier résultat de la liste qui s'affiche correspond à un événement du 30 du mois courant.
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)", "");
+        driver.findElement(By.cssSelector(".date_30 a")).click();
+        assertTrue(driver.findElement(By.className("date-indicator")).getText().contains("30"));
     }
 
     @Test
@@ -128,6 +128,7 @@ public class FunctionalTest {
         // En cliquant sur contacter je dois alors être automatiquement redirigé vers la page de connexion https://secure.meetup.com/fr-FR/login/
         driver.get("https://www.meetup.com/fr-FR/promenades-et-randonnees/?_locale=fr-FR");
 
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,200)", "");
         driver.findElement(By.cssSelector(".orgIntroCard-orgDetails a.orgInfo-message")).click();
         assertTrue(driver.getCurrentUrl().startsWith("https://secure.meetup.com/fr-FR/login"));
     }
