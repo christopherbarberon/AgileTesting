@@ -18,7 +18,6 @@ public class FunctionalTest {
 
     @BeforeClass
     public static void setUp() {
-        System.setProperty("webdriver.gecko.driver", "./geckodriver.exe");
         driver = DriverResolver.find();
         // Seems no more working in last Chrome versions
         // driver.manage().window().maximize();
