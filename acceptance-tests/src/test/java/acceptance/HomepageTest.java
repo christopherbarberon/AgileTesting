@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	features = {"/src/test/java/acceptance"}, // ou se situe votre fichier .feature
+	features = {"./src/test/java/acceptance"}, // ou se situe votre fichier .feature
 	plugin = {"pretty"}
 	)
 public class HomepageTest {

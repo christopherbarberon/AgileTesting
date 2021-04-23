@@ -25,8 +25,8 @@ Feature: Fonctionnalités de ma page d'accueil
 		Given je suis sur la homepage
 		When je clique sur le menu burger
 		Then le burger menu contient les liens suivants
-			| Véhicules disponibles  |
-			| Véhicules d'occasion   |
+			| Véhicules Disponibles  |
+			| Véhicules D'occasion   |
 			| Reprise                |
 			| Cybertruck             |
 			| Roadster               |

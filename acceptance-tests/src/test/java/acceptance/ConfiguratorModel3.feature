@@ -11,7 +11,7 @@ Feature: Configuration model 3
     Examples:
       | gamme                | poids | accélération | autonomie |
       | Performance          | 1 844 | 3.3          | 567       |
-      | Grande Autonomie AWD | 1 844 | 4,4          | 580       |
+      | Grande Autonomie AWD | 1 844 | 4,4          | 614       |
       | Standard Plus        | 1 745 | 5,6          | 448       |
     # les virgules sont différents sur la page entre performance et les autres
     # j'ai pour ça que j'ai mis un . pour performance et des , pour les autres ici

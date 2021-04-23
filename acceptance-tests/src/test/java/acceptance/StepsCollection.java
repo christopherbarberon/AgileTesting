@@ -61,7 +61,7 @@ public class StepsCollection {
 	@When("je clique sur le menu burger")
 	public void jeCliqueSurLeMenuBurger() {
 		driver.findElement(By.cssSelector("label.tds-menu-header-main--trigger_icon--placeholder")).click();
-		WebDriverWait waiter = new WebDriverWait(driver, 5);
+		WebDriverWait waiter = new WebDriverWait(driver, 20);
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(By.id("block-mainheadernavigation")));
 	}
 
@@ -73,7 +73,7 @@ public class StepsCollection {
 	@When("je clique sur {string}")
 	public void jeCliqueSur(String link){
 		WebElement element = driver.findElement(By.xpath("//*[text()='" + link + "']"));
-		WebDriverWait waiter = new WebDriverWait(driver, 5);
+		WebDriverWait waiter = new WebDriverWait(driver, 15);
 		waiter.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
 	}
@@ -81,7 +81,7 @@ public class StepsCollection {
 	@When("je clique sur le lien {string}")
 	public void jeCliqueSurLeLien(String link){
 		WebElement element = driver.findElement(By.xpath("//a[text()='" + link + "']"));
-		WebDriverWait waiter = new WebDriverWait(driver, 5);
+		WebDriverWait waiter = new WebDriverWait(driver, 15);
 		waiter.until(ExpectedConditions.elementToBeClickable(element));
 		element.click();
 	}
@@ -130,6 +130,8 @@ public class StepsCollection {
 
 	@Then("le burger menu contient les liens suivants")
 	public void leBurgerMenuContientLesLiensSuivants(List<String> links) {
+		WebDriverWait waiter = new WebDriverWait(driver, 5);
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#block-hamburgerdesktop > ol > li > a")));
 		List<WebElement> nav = driver.findElements(By.cssSelector("#block-hamburgerdesktop > ol > li > a"));
 		for (String link : links) {
 			assertTrue(link, nav.stream().anyMatch(a -> a.getText().equalsIgnoreCase(link)));
