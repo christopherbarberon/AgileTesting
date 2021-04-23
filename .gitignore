@@ -52,6 +52,6 @@ bin/
 target/
 
 drivers/chrome*
-drivers/gecho*
+drivers/gecko*
 
 *.class
